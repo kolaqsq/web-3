@@ -1,0 +1,50 @@
+body {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.menu {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  margin: 2.5%;
+}
+
+.option {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+label {
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: 0.25s;
+}
+
+input {
+  display: none;
+}
+
+input:checked + label {
+  color: blueviolet;
+  transition: 0.25s;
+}
+
+canvas {
+  border: 2px solid black;
+  margin: 2.5%;
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+/*# sourceMappingURL=style.css.map */
