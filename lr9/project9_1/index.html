@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+
+    <script defer src="script.js"></script>
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <title>Лабораторная работа 9</title>
+</head>
+<body>
+<h1 id="loading">Обработка данных.<br>
+    Пожалуйста, подождите.</h1>
+<form action="" id="tickets">
+    <div class="option">
+        <label for="destination_city">Город назначения: </label>
+        <select id="destination_city" name="destination_city" required>
+            <option value="tokyo">Токио, Япония</option>
+            <option value="paris">Париж, Франция</option>
+            <option value="london">Лондон, Великобритания</option>
+            <option value="barcelona">Барселона, Испания</option>
+            <option value="rome">Рим, Италия</option>
+        </select>
+    </div>
+    <div class="option">
+        <label for="departure_city">Город отправления: </label>
+        <select id="departure_city" name="departure_city" required>
+            <option value="moscow">Москва</option>
+            <option value="petersburg">Санкт-Петербург</option>
+            <option value="kazan">Казань</option>
+            <option value="voronezh">Воронеж</option>
+            <option value="anapa">Анапа</option>
+        </select>
+    </div>
+    <div class="option">
+        <label for="departure_date">Дата отправления: </label>
+        <input id="departure_date" name="departure_date" required type="date">
+    </div>
+    <input class="button" id="tickets_submit" type="submit">
+</form>
+<form action="" id="hotel">
+    <div class="option">
+        <h2>Город назначения: </h2>
+        <span id="hotel_city"></span>
+    </div>
+    <div class="option">
+        <label for="hotel_type">Тип отеля: </label>
+        <select id="hotel_type" name="hotel_type" required>
+            <option value="5_star">5 звезд</option>
+            <option value="4_star">4 звезды</option>
+            <option value="3_star">3 звезды</option>
+        </select>
+    </div>
+    <div class="option">
+        <label for="booking_date">Дата начала брони: </label>
+        <input id="booking_date" name="booking_date" required type="date">
+    </div>
+    <p>Бронь выдается на 1 неделю</p>
+    <input class="button" id="hotel_submit" type="submit">
+</form>
+<form action="" id="visa">
+    <div class="option">
+        <h2>Страна визы: </h2>
+        <span id="visa_country"></span>
+    </div>
+    <div class="option">
+        <h2>Дата начала действия визы: </h2>
+        <span id="visa_date"></span>
+    </div>
+    <div class="option">
+        <label for="visa_duration">Длительность визы: </label>
+        <select id="visa_duration" name="visa_duration" required>
+            <option value="1_month">1 месяц</option>
+            <option value="6_month">6 месяцев</option>
+            <option value="1_year">1 год</option>
+        </select>
+    </div>
+    <input class="button" id="visa_submit" type="submit">
+</form>
+<div id="booking_info">
+    <div class="option">
+        <h2>Город назначения: </h2>
+        <span id="destination_city_info"></span>
+    </div>
+    <div class="option">
+        <h2>Город отправления: </h2>
+        <span id="departure_city_info"></span>
+    </div>
+    <div class="option">
+        <h2>Дата отправления: </h2>
+        <span id="departure_date_info"></span>
+    </div>
+    <div class="option">
+        <h2>Тип отеля: </h2>
+        <span id="hotel_type_info"></span>
+    </div>
+    <div class="option">
+        <h2>Дата начала брони: </h2>
+        <span id="booking_date_info"></span>
+    </div>
+    <div class="option">
+        <h2>Дата начала действия визы: </h2>
+        <span id="visa_duration_info"></span>
+    </div>
+</div>
+</body>
+</html>

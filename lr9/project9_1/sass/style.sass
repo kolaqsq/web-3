@@ -1,0 +1,93 @@
+$standard-font: 'JetBrains Mono', monospace
+
+body
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+  justify-content: center
+  width: 100vw
+  height: 100vh
+  margin: 0
+
+h1
+  font-family: $standard-font
+  font-style: normal
+  font-weight: 300
+  font-size: 2rem
+  display: flex
+  align-items: center
+  text-align: center
+
+form, #booking_info
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+  justify-content: flex-start
+  width: 100%
+
+.option
+  display: flex
+  flex-flow: row nowrap
+  align-items: center
+  justify-content: space-between
+  width: 50%
+
+  label, h2
+    font-family: $standard-font
+    font-style: normal
+    font-weight: 300
+    font-size: 1rem
+    display: flex
+    align-items: center
+    margin: 0
+
+  select
+    font-family: $standard-font
+    font-style: normal
+    font-weight: 300
+    font-size: 1rem
+    display: flex
+    align-items: center
+    width: 50%
+    box-sizing: content-box
+    border: 1px solid black
+
+  input
+    font-family: $standard-font
+    font-style: normal
+    font-weight: 300
+    font-size: 1rem
+    display: flex
+    align-items: center
+    width: 50%
+    border: 1px solid black
+    padding: 0
+
+  span
+    font-family: $standard-font
+    font-style: normal
+    font-weight: 300
+    font-size: 1rem
+    display: flex
+    align-items: center
+    width: 50%
+
+p
+  font-family: $standard-font
+  font-style: normal
+  font-weight: 300
+  font-size: .75rem
+  display: flex
+  align-items: center
+
+.button
+  margin: 1.25%
+  font-family: $standard-font
+  font-style: normal
+  font-weight: 300
+  font-size: 1rem
+  display: flex
+  align-items: center
+
+#loading, #hotel, #visa, #booking_info
+  display: none
