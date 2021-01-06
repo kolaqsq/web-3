@@ -1,0 +1,127 @@
+$standard-font: 'JetBrains Mono', monospace
+
+body
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+  justify-content: flex-start
+  width: 100%
+  margin: 0
+
+.sensors-grid
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  //grid-template-rows: repeat(2, 400px)
+  width: 100%
+
+.sensor
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+  justify-content: center
+  border-radius: 12.5px
+  margin: 2.5%
+  font-family: $standard-font
+
+  &_green
+    background-color: lightgreen
+
+  &_red
+    background-color: lightcoral
+
+  span
+    font-family: $standard-font
+    font-size: 1.25rem
+    font-weight: 300
+    margin-top: 12.5%
+
+  h1
+    font-family: $standard-font
+    font-size: 2rem
+    font-weight: 300
+    text-align: center
+    margin: 12.5% 0
+
+  button
+    font-family: $standard-font
+    font-size: 1rem
+    font-weight: 300
+    border: none
+    border-radius: 5px
+    margin-bottom: 12.5%
+    padding: 2%
+
+.add-sensor
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+  justify-content: flex-start
+  width: 100%
+
+  button
+    margin: 1.25%
+    font-family: $standard-font
+    font-style: normal
+    font-weight: 300
+    font-size: 1rem
+    display: flex
+    align-items: center
+
+.option
+  display: flex
+  flex-flow: row nowrap
+  align-items: center
+  justify-content: space-between
+  width: 50%
+
+  label
+    font-family: $standard-font
+    font-style: normal
+    font-weight: 300
+    font-size: 1rem
+    display: flex
+    align-items: center
+    margin: 0
+
+  select
+    font-family: $standard-font
+    font-style: normal
+    font-weight: 300
+    font-size: 1rem
+    display: flex
+    align-items: center
+    width: 50%
+    box-sizing: content-box
+    border: 1px solid black
+
+  input
+    font-family: $standard-font
+    font-style: normal
+    font-weight: 300
+    font-size: 1rem
+    display: flex
+    align-items: center
+    width: 50%
+    border: 1px solid black
+    padding: 0
+
+@media only screen and (max-device-width: 1000px)
+  .sensors-grid
+    grid-template-columns: repeat(2, 1fr)
+
+  .option
+    width: 90%
+
+@media only screen and (max-device-width: 400px)
+  .sensors-grid
+    grid-template-columns: repeat(1, 1fr)
+
+  .option
+    flex-flow: column nowrap
+    width: 90%
+    margin-bottom: 5%
+
+
+
+
+
