@@ -1,5 +1,9 @@
 <h1>{{title}}</h1>
 
+<app-addform-worker
+  (addWorker)="onAddWorker($event)"
+></app-addform-worker>
+
 <app-table-workers
   [title]="'Программисты'"
   [workers]="grtByType(workerType.programmer)"

@@ -1,7 +1,7 @@
 export interface Worker {
   id?: number;
-  name: string;
-  surname: string;
+  name: string | undefined;
+  surname: string | undefined;
   type: number;
 }
 

@@ -24,4 +24,11 @@ export class AppComponent {
       this.workers.splice(index, 1);
     }
   }
+
+  onAddWorker(worker: Worker) {
+    worker.id = this.workers.length > 0
+      ? this.workers[this.workers.length - 1].id! + 1
+      : 0;
+    this.workers.push(worker);
+  }
 }

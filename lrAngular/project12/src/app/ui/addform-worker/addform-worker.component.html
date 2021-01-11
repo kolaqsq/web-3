@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="form">
+    <input
+      type="text"
+      placeholder="Имя"
+      required
+      [(ngModel)]="name"
+    />
+    <input
+      type="text"
+      placeholder="Фамилия"
+      required
+      [(ngModel)]="surname"
+    />
+    <select [(ngModel)]="type">
+      <option [ngValue]="workerType.programmer">Программист</option>
+      <option [ngValue]="workerType.designer">Дизайнер</option>
+      <option [ngValue]="workerType.copywriter">Рекламщик</option>
+      <option [ngValue]="workerType.manager">Менеджер</option>
+    </select>
+  </div>
+  <button (click)="onAddWorker()">Добавить</button>
+</div>
