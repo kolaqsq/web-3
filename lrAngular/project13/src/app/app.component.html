@@ -1,0 +1,50 @@
+<head>
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <title>Список сотрудников</title>
+</head>
+
+<div>
+  <app-form-add-worker
+    (addWorker)="onAddWorker($event)"
+  ></app-form-add-worker>
+
+  <app-form-redact-worker
+    (changeWorker)="onChangeWorker($event)"
+    (closeRedact)="onCloseRedact()"
+    [id]="redactID"
+    [mode]="redactMode"
+    [worker]="redactWorker"
+  ></app-form-redact-worker>
+
+  <h2>{{errorMessage}}</h2>
+
+  <app-table-workers
+    (deleteWorker)="onDeleteWorker($event)"
+    (openRedact)="onOpenRedact($event)"
+    [title]="'Программисты'"
+    [workers]="grtByType(workerType.programmer)"
+  ></app-table-workers>
+
+  <app-table-workers
+    (deleteWorker)="onDeleteWorker($event)"
+    (openRedact)="onOpenRedact($event)"
+    [title]="'Дизайнеры'"
+    [workers]="grtByType(workerType.designer)"
+  ></app-table-workers>
+
+  <app-table-workers
+    (deleteWorker)="onDeleteWorker($event)"
+    (openRedact)="onOpenRedact($event)"
+    [title]="'Рекламщики'"
+    [workers]="grtByType(workerType.copywriter)"
+  ></app-table-workers>
+
+  <app-table-workers
+    (deleteWorker)="onDeleteWorker($event)"
+    (openRedact)="onOpenRedact($event)"
+    [title]="'Менеджеры'"
+    [workers]="grtByType(workerType.manager)"
+  ></app-table-workers>
+</div>
+

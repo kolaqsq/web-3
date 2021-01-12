@@ -1,0 +1,54 @@
+<div *ngIf="mode">
+  <h1>Редактирование</h1>
+  <form [formGroup]="formRedact">
+    <div class="row">
+      <input
+        [(ngModel)]="name"
+        formControlName="name"
+        name="name"
+        placeholder="{{worker.name}}"
+      />
+      <input
+        [(ngModel)]="surname"
+        formControlName="surname"
+        name="surname"
+        placeholder="{{worker.surname}}"
+      />
+      <input
+        [(ngModel)]="phone"
+        [textMask]="{mask: phoneMask}"
+        formControlName="phone"
+        name="phone"
+        placeholder="+7 (ххх) ххх-хх-хх"
+      />
+      <select
+        [(ngModel)]="type"
+        formControlName="type"
+        name="type"
+      >
+        <option [ngValue]="workerType.programmer">Программист</option>
+        <option [ngValue]="workerType.designer">Дизайнер</option>
+        <option [ngValue]="workerType.copywriter">Рекламщик</option>
+        <option [ngValue]="workerType.manager">Менеджер</option>
+      </select>
+    </div>
+    <div class="row">
+      <button
+        (click)="onChangeWorker(); clear()"
+        [disabled]="formRedact.invalid"
+        class="save"
+      >Добавить
+      </button>
+
+      <button
+        (click)="onCloseRedact(); clear()"
+        class="cancel"
+      >Отмена
+      </button>
+    </div>
+    <h2
+      *ngIf="(formRedact.controls['name'].invalid && formRedact.controls['name'].touched)
+      || (formRedact.controls['surname'].invalid && formRedact.controls['surname'].touched)"
+    >Введены не все данные</h2>
+  </form>
+</div>

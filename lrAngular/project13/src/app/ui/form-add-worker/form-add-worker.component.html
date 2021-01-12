@@ -1,0 +1,44 @@
+<div>
+  <form [formGroup]="formAdd">
+    <div class="row">
+      <input
+        [(ngModel)]="name"
+        formControlName="name"
+        name="name"
+        placeholder="Имя"
+      />
+      <input
+        [(ngModel)]="surname"
+        formControlName="surname"
+        name="surname"
+        placeholder="Фамилия"
+      />
+      <input
+        [(ngModel)]="phone"
+        [textMask]="{mask: phoneMask}"
+        formControlName="phone"
+        name="phone"
+        placeholder="+7 (ххх) ххх-хх-хх"
+      />
+      <select
+        [(ngModel)]="type"
+        formControlName="type"
+        name="type"
+      >
+        <option [ngValue]="workerType.programmer">Программист</option>
+        <option [ngValue]="workerType.designer">Дизайнер</option>
+        <option [ngValue]="workerType.copywriter">Рекламщик</option>
+        <option [ngValue]="workerType.manager">Менеджер</option>
+      </select>
+    </div>
+    <button
+      (click)="onAddWorker(); clear()"
+      [disabled]="formAdd.invalid"
+    >Добавить
+    </button>
+    <h2
+      *ngIf="(formAdd.controls['name'].invalid && formAdd.controls['name'].touched)
+      || (formAdd.controls['surname'].invalid && formAdd.controls['surname'].touched)"
+    >Введены не все данные</h2>
+  </form>
+</div>
