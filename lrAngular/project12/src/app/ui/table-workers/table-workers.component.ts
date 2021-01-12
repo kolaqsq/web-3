@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Worker} from "../../shared/worker.model";
 
 @Component({
@@ -11,6 +11,7 @@ export class TableWorkersComponent implements OnInit {
   @Input() title: string | undefined;
   @Input() workers: Worker[] = [];
   @Output() deleteWorker = new EventEmitter<number>();
+  @Output() openRedact = new EventEmitter<number>();
 
   constructor() {
   }
@@ -18,8 +19,11 @@ export class TableWorkersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDeleteWorker(id: number) {
+  onDeleteWorker(id: number | undefined) {
     this.deleteWorker.emit(id);
   }
 
+  onOpenRedact(id: number | undefined) {
+    this.openRedact.emit(id);
+  }
 }

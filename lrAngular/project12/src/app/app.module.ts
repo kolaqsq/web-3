@@ -5,12 +5,14 @@ import {AppComponent} from './app.component';
 import {TableWorkersComponent} from './ui/table-workers/table-workers.component';
 import {AddformWorkerComponent} from './ui/addform-worker/addform-worker.component';
 import {FormsModule} from "@angular/forms";
+import {RedactformWorkerComponent} from './ui/redactform-worker/redactform-worker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableWorkersComponent,
-    AddformWorkerComponent
+    AddformWorkerComponent,
+    RedactformWorkerComponent
   ],
   imports: [
     BrowserModule,

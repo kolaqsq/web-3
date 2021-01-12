@@ -2,7 +2,7 @@ export interface Worker {
   id?: number;
   name: string | undefined;
   surname: string | undefined;
-  type: number;
+  type: number | undefined;
 }
 
 export enum WorkerType {

@@ -11,6 +11,11 @@ export class AppComponent {
   title = 'Список сотрудников';
   workers: Worker[] = WorkerDatabase;
   workerType = WorkerType;
+  errorMessage: string | undefined;
+  redactMode: boolean = false;
+  redactID: number | undefined;
+  redactType: number | undefined;
+  redactWorker: Worker = {name: '', surname: '', type: 0};
 
   grtByType(type: number) {
     return this.workers.filter((worker) =>
@@ -26,9 +31,44 @@ export class AppComponent {
   }
 
   onAddWorker(worker: Worker) {
-    worker.id = this.workers.length > 0
-      ? this.workers[this.workers.length - 1].id! + 1
-      : 0;
-    this.workers.push(worker);
+    if (worker.name !== undefined
+      && worker.surname !== undefined
+      && worker.name.replace(/\s/g, "") !== ''
+      && worker.surname.replace(/\s/g, "") !== '') {
+      worker.id = this.workers.length > 0
+        ? this.workers[this.workers.length - 1].id! + 1
+        : 0;
+      this.workers.push(worker);
+      this.errorMessage = '';
+    } else {
+      this.errorMessage = 'Данные не введены'
+    }
+  }
+
+  onChangeWorker(worker: Worker) {
+    if (worker.name !== undefined
+      && worker.surname !== undefined
+      && worker.name.replace(/\s/g, "") !== ''
+      && worker.surname.replace(/\s/g, "") !== '') {
+      this.workers[worker.id!] = worker;
+      this.workers[worker.id!].id!++;
+      this.redactMode = false;
+    } else {
+      this.errorMessage = 'Данные не введены'
+      this.onCloseRedact();
+    }
+  }
+
+  onOpenRedact(id: number) {
+    this.redactID = id - 1;
+    this.redactType = this.workers[this.redactID].type;
+    this.redactWorker = this.workers[this.redactID];
+    this.redactMode = true;
+  }
+
+  onCloseRedact() {
+    this.redactMode = false;
   }
 }
+
+

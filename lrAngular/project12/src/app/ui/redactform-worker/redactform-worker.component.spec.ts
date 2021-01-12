@@ -1,20 +1,20 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {AddformWorkerComponent} from './addform-worker.component';
+import {RedactformWorkerComponent} from './redactform-worker.component';
 
-describe('AddformWorkerComponent', () => {
-  let component: AddformWorkerComponent;
-  let fixture: ComponentFixture<AddformWorkerComponent>;
+describe('RedactformWorkerComponent', () => {
+  let component: RedactformWorkerComponent;
+  let fixture: ComponentFixture<RedactformWorkerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AddformWorkerComponent]
+      declarations: [RedactformWorkerComponent]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddformWorkerComponent);
+    fixture = TestBed.createComponent(RedactformWorkerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

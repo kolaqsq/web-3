@@ -1,29 +1,53 @@
-<h1>{{title}}</h1>
+<head>
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <title>Список сотрудников</title>
+</head>
 
-<app-addform-worker
-  (addWorker)="onAddWorker($event)"
-></app-addform-worker>
+<div>
+  <h1>{{title}}</h1>
 
-<app-table-workers
-  [title]="'Программисты'"
-  [workers]="grtByType(workerType.programmer)"
-  (deleteWorker)="onDeleteWorker($event)"
-></app-table-workers>
+  <app-addform-worker
+    (addWorker)="onAddWorker($event)"
+  ></app-addform-worker>
 
-<app-table-workers
-  [title]="'Дизайнеры'"
-  [workers]="grtByType(workerType.designer)"
-  (deleteWorker)="onDeleteWorker($event)"
-></app-table-workers>
+  <app-redactform-worker
+    (changeWorker)="onChangeWorker($event)"
+    (closeRedact)="onCloseRedact()"
+    [id]="redactID"
+    [mode]="redactMode"
+    [type]="redactType"
+    [worker]="redactWorker"
+  ></app-redactform-worker>
 
-<app-table-workers
-  [title]="'Рекламщики'"
-  [workers]="grtByType(workerType.copywriter)"
-  (deleteWorker)="onDeleteWorker($event)"
-></app-table-workers>
+  <h2>{{errorMessage}}</h2>
 
-<app-table-workers
-  [title]="'Менеджеры'"
-  [workers]="grtByType(workerType.manager)"
-  (deleteWorker)="onDeleteWorker($event)"
-></app-table-workers>
+  <app-table-workers
+    (deleteWorker)="onDeleteWorker($event)"
+    (openRedact)="onOpenRedact($event)"
+    [title]="'Программисты'"
+    [workers]="grtByType(workerType.programmer)"
+  ></app-table-workers>
+
+  <app-table-workers
+    (deleteWorker)="onDeleteWorker($event)"
+    (openRedact)="onOpenRedact($event)"
+    [title]="'Дизайнеры'"
+    [workers]="grtByType(workerType.designer)"
+  ></app-table-workers>
+
+  <app-table-workers
+    (deleteWorker)="onDeleteWorker($event)"
+    (openRedact)="onOpenRedact($event)"
+    [title]="'Рекламщики'"
+    [workers]="grtByType(workerType.copywriter)"
+  ></app-table-workers>
+
+  <app-table-workers
+    (deleteWorker)="onDeleteWorker($event)"
+    (openRedact)="onOpenRedact($event)"
+    [title]="'Менеджеры'"
+    [workers]="grtByType(workerType.manager)"
+  ></app-table-workers>
+</div>
+

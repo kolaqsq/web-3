@@ -1,14 +1,15 @@
-<div>
+<div *ngIf="mode">
+  <h1>Редактирование</h1>
   <div class="form">
     <input
       [(ngModel)]="name"
-      placeholder="Имя"
+      placeholder="{{worker.name}}"
       required
       type="text"
     />
     <input
       [(ngModel)]="surname"
-      placeholder="Фамилия"
+      placeholder="{{worker.surname}}"
       required
       type="text"
     />
@@ -19,5 +20,8 @@
       <option [ngValue]="workerType.manager">Менеджер</option>
     </select>
   </div>
-  <button (click)="onAddWorker()">Добавить</button>
+  <div class="row">
+    <button (click)="onChangeWorker()" class="save">Сохранить</button>
+    <button (click)="onCloseRedact()" class="cancel">Отмена</button>
+  </div>
 </div>

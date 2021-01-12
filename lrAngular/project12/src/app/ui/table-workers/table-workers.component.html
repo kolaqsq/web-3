@@ -1,19 +1,25 @@
-<div class="container" *ngIf="workers.length > 0">
+<div *ngIf="workers.length > 0">
   <h1>{{title}}</h1>
   <table>
     <tr>
-      <th>id</th>
-      <th>Имя</th>
-      <th>Фамилия</th>
-      <th></th>
+      <th class="one">id</th>
+      <th class="two">Имя</th>
+      <th class="three">Фамилия</th>
+      <th class="four"></th>
+      <th class="fifth"></th>
     </tr>
     <tr *ngFor="let worker of workers">
       <th>{{worker.id}}</th>
       <td>{{worker.name}}</td>
       <td>{{worker.surname}}</td>
       <td>
-        <button (click)="onDeleteWorker(worker.id)">
+        <button (click)="onDeleteWorker(worker.id)" class="delete">
           Удалить
+        </button>
+      </td>
+      <td>
+        <button (click)="onOpenRedact(worker.id)" class="redact">
+          Редактировать
         </button>
       </td>
     </tr>
