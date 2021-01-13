@@ -1,0 +1,49 @@
+<div>
+<!--  <h1>Редактирование</h1>-->
+  <form [formGroup]="workerForm">
+    <div class="row">
+      <label for="worker-name"></label>
+      <input
+        type="text"
+        formControlName="name"
+        id="worker-name"
+      />
+    </div>
+<!--      <input-->
+<!--        [(ngModel)]="phone"-->
+<!--        [textMask]="{mask: phoneMask}"-->
+<!--        formControlName="phone"-->
+<!--        name="phone"-->
+<!--        placeholder="+7 (ххх) ххх-хх-хх"-->
+<!--      />-->
+<!--      <select-->
+<!--        [(ngModel)]="type"-->
+<!--        formControlName="type"-->
+<!--        name="type"-->
+<!--      >-->
+<!--        <option [ngValue]="workerType.programmer">Программист</option>-->
+<!--        <option [ngValue]="workerType.designer">Дизайнер</option>-->
+<!--        <option [ngValue]="workerType.copywriter">Рекламщик</option>-->
+<!--        <option [ngValue]="workerType.manager">Менеджер</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--      <button-->
+<!--        (click)="onRedactWorker(); clear()"-->
+<!--        [disabled]="formRedact.invalid"-->
+<!--        class="save"-->
+<!--      >Сохранить-->
+<!--      </button>-->
+
+<!--      <button-->
+<!--        (click)="onCloseRedact(); clear()"-->
+<!--        class="cancel"-->
+<!--      >Отмена-->
+<!--      </button>-->
+<!--    </div>-->
+<!--    <h2-->
+<!--      *ngIf="(formRedact.controls['name'].invalid && formRedact.controls['name'].touched)-->
+<!--      || (formRedact.controls['surname'].invalid && formRedact.controls['surname'].touched)"-->
+<!--    >Введены не все данные</h2>-->
+  </form>
+</div>

@@ -1,0 +1,44 @@
+<div *ngIf="(workers | filterWorkers: filterValue).length > 0">
+<!--  <h1>{{title}}</h1>-->
+  <table>
+    <tr>
+      <th>id</th>
+      <th>Фамилия</th>
+      <th>Имя</th>
+      <th>Возраст</th>
+      <th>Отдел</th>
+      <th>
+        <button
+          (click)="onAddProfile()"
+          class="redact"
+        >
+          Добавить
+        </button>
+      </th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let worker of workers | filterWorkers: filterValue">
+      <th>{{worker.id}}</th>
+      <td>{{worker.surname}}</td>
+      <td>{{worker.name}}</td>
+      <td>{{worker.birthdate}}</td>
+      <td>{{worker.department}}</td>
+      <td>
+        <button
+          (click)="onLinkProfile(worker.id)"
+          class="redact"
+        >
+          Редактировать
+        </button>
+      </td>
+      <td>
+        <button
+          (click)="onDelete(worker.id)"
+          class="delete"
+        >
+          Удалить
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
