@@ -1,0 +1,61 @@
+$standard-font: 'Montserrat', sans-serif
+
+div
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+  justify-content: flex-start
+  width: 75vw
+  height: 100%
+
+  form
+    display: flex
+    flex-flow: column nowrap
+    align-items: center
+    justify-content: center
+    margin-bottom: 2.5%
+
+    .row
+      display: flex
+      flex-flow: row nowrap
+      align-items: center
+      justify-content: center
+      margin-bottom: 2.5%
+
+      input, select, option
+        font-family: $standard-font
+        font-weight: 300
+        font-size: 1rem
+        border: 1px solid black
+        padding: 0
+        margin: 0 2.5%
+
+      input
+        padding: 1px 0
+
+    button
+      font-family: $standard-font
+      font-size: 1rem
+      font-weight: 300
+      border: 1px solid #04a704
+      border-radius: 5px
+      padding: 1% 2.5%
+      color: #04a704
+      background: none
+
+      &:focus
+        outline: none
+
+      &:active
+        background-color: #04a704
+        color: white
+
+      &:disabled
+        background-color: #eeeeee
+
+    h2
+      font-family: $standard-font
+      font-size: 1.25rem
+      font-weight: 500
+      text-align: center
+      margin: 2.5% 0
