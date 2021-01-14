@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Worker} from "../../shared/models/worker.model";
+import {Worker, WorkerDepartment} from "../../shared/models/worker.model";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {isNullOrUndefined} from 'util';
 import {WorkersService} from "../../shared/services/workers.service";
+import {isNullOrUndefined} from "../shared/tools/is-null-or-unfrfined";
 
 @Component({
   selector: 'app-worker-edit',
@@ -13,6 +13,7 @@ import {WorkersService} from "../../shared/services/workers.service";
 export class WorkerEditComponent implements OnInit {
   id: number | undefined;
   worker: Worker | undefined;
+  workerDepartment = WorkerDepartment;
   workerForm: FormGroup | undefined;
   phoneMask = ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
 
@@ -31,8 +32,15 @@ export class WorkerEditComponent implements OnInit {
       'surname': new FormControl('', Validators.required),
       'name': new FormControl('', Validators.required),
       'patronymic': new FormControl('', Validators.required),
-      'phone': new FormControl('', Validators.pattern('\\+7 \\([0-9]{3}\\) [0-9]{3}-[0-9]{2}-[0-9]{2}')),
-      'email': new FormControl('', Validators.required),
+      'phone': new FormControl('', Validators.compose(
+        [
+          Validators.required,
+          Validators.pattern('\\+7 \\([0-9]{3}\\) [0-9]{3}-[0-9]{2}-[0-9]{2}'),
+        ])),
+      'email': new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.email,
+      ])),
       'birthdate': new FormControl('', Validators.required),
       'department': new FormControl('', Validators.required),
     });
@@ -42,14 +50,19 @@ export class WorkerEditComponent implements OnInit {
   async getData() {
     if (!isNullOrUndefined(this.id)) {
       try {
-        let user = this.workersService.getOneById(this.id);
-        this.worker = await user;
+        let worker = this.workersService.getOneById(this.id!);
+        this.worker = await worker;
       } catch (err) {
         console.error(err);
       }
       this.workerForm!.patchValue({
         name: this.worker!.name,
         surname: this.worker!.surname,
+        patronymic: this.worker!.patronymic,
+        phone: this.worker!.phone,
+        email: this.worker!.email,
+        birthdate: this.worker!.birthdate,
+        department: this.worker!.department,
       });
     }
   }
@@ -57,7 +70,7 @@ export class WorkerEditComponent implements OnInit {
   async onSave() {
     if (!isNullOrUndefined(this.id)) {
       try {
-        await this.workersService.putOneById(this.id, this.workerForm!.value);
+        await this.workersService.putOneById(this.id!, this.workerForm!.value);
       } catch (err) {
         console.error(err);
       }

@@ -5,20 +5,9 @@ export interface Worker {
   patronymic: string;
   phone: string;
   email: string;
-  birthdate: string;
+  birthdate: Date;
   department: number;
 }
-
-// export interface Worker {
-//   id?: number;
-//   surname: string | undefined;
-//   name: string | undefined;
-//   patronymic: string | undefined;
-//   phone: string | undefined;
-//   email: string | undefined;
-//   birthdate: string | undefined;
-//   department: number | undefined;
-// }
 
 export enum WorkerDepartment {
   it,
@@ -26,3 +15,10 @@ export enum WorkerDepartment {
   delivery,
   legal,
 }
+
+export let Departments = [
+  'IT отдел',
+  'Отдел продаж',
+  'Отдел доставки',
+  'Юридический отдел',
+]

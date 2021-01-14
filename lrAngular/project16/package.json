@@ -20,7 +20,9 @@
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
     "angular2-text-mask": "^9.0.0",
+    "core-util-is": "^1.0.2",
     "jquery": "^3.5.1",
+    "ngx-order-pipe": "^2.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

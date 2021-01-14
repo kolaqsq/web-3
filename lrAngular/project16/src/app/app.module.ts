@@ -8,6 +8,9 @@ import {InfoComponent} from './info/info.component';
 import {HeaderComponent} from './shared/components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import {FilterWorkersPipe} from "./workers/shared/pipes/filter-workers.pipe";
+import {OrderModule} from "ngx-order-pipe";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    // FilterWorkersPipe,
+    OrderModule
   ],
   providers: [],
   exports: [],

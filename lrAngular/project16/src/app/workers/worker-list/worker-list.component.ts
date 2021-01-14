@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Worker} from "../../shared/models/worker.model";
+import {Departments, Worker} from "../../shared/models/worker.model";
 import {WorkersService} from "../../shared/services/workers.service";
 import {Router} from "@angular/router";
-import {isNullOrUndefined} from "util";
+import {isNullOrUndefined} from "../shared/tools/is-null-or-unfrfined";
 
 
 @Component({
@@ -12,7 +12,12 @@ import {isNullOrUndefined} from "util";
 })
 export class WorkerListComponent implements OnInit {
   workers: Worker[] = [];
+  departments = Departments
   filterValue = '';
+  orderState = false;
+  orderType = 'id';
+  orderId = 'ID';
+  orderAge = 'Возраст';
 
   constructor(private workersService: WorkersService, private router: Router) {
   }
@@ -30,8 +35,27 @@ export class WorkerListComponent implements OnInit {
     }
   }
 
+  getAge(worker: Worker) {
+    let age = Math.abs(Date.now() - new Date(worker.birthdate).getTime());
+    return Math.floor((age / (1000 * 3600 * 24)) / 365.25);
+  }
+
+  changeOrderIdState() {
+    this.orderType = 'id';
+    this.orderState = !this.orderState;
+    this.orderId = this.orderState ? 'ID ↑' : 'ID ↓';
+    this.orderAge = 'Возраст';
+  }
+
+  changeOrderAgeState() {
+    this.orderType = 'birthdate';
+    this.orderState = !this.orderState;
+    this.orderAge = this.orderState ? 'Возраст ↓' : 'Возраст ↑';
+    this.orderId = 'ID';
+  }
+
   onLinkProfile(id: number) {
-    this.router.navigate([this.router.url, 'profile', id]);
+    this.router.navigate([this.router.url, 'profile', id!]);
   }
 
   onAddProfile() {

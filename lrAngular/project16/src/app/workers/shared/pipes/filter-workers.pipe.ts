@@ -10,14 +10,23 @@ export class FilterWorkersPipe implements PipeTransform {
     if (filterValue === '') {
       return workers;
     } else {
-      return workers.filter(
+      let byName = workers.filter(
         (worker) =>
           worker.name!.toLowerCase().indexOf(filterValue.toLowerCase()) !== -1
-      ).concat(workers.filter(
+      );
+      let bySurname = workers.filter(
         (worker) =>
           worker.surname!.toLowerCase().indexOf(filterValue.toLowerCase()) !== -1
-        )
       );
+
+      let filtered = byName.concat(bySurname);
+
+      filtered = filtered.filter((item, index) => {
+          return (filtered.indexOf(item) == index)
+        }
+      )
+
+      return filtered;
     }
   }
 

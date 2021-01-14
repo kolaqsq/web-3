@@ -1,49 +1,83 @@
 <div>
-<!--  <h1>Редактирование</h1>-->
+  <!--  <h1>Редактирование</h1>-->
   <form [formGroup]="workerForm">
     <div class="row">
-      <label for="worker-name"></label>
-      <input
-        type="text"
-        formControlName="name"
-        id="worker-name"
-      />
-    </div>
-<!--      <input-->
-<!--        [(ngModel)]="phone"-->
-<!--        [textMask]="{mask: phoneMask}"-->
-<!--        formControlName="phone"-->
-<!--        name="phone"-->
-<!--        placeholder="+7 (ххх) ххх-хх-хх"-->
-<!--      />-->
-<!--      <select-->
-<!--        [(ngModel)]="type"-->
-<!--        formControlName="type"-->
-<!--        name="type"-->
-<!--      >-->
-<!--        <option [ngValue]="workerType.programmer">Программист</option>-->
-<!--        <option [ngValue]="workerType.designer">Дизайнер</option>-->
-<!--        <option [ngValue]="workerType.copywriter">Рекламщик</option>-->
-<!--        <option [ngValue]="workerType.manager">Менеджер</option>-->
-<!--      </select>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--      <button-->
-<!--        (click)="onRedactWorker(); clear()"-->
-<!--        [disabled]="formRedact.invalid"-->
-<!--        class="save"-->
-<!--      >Сохранить-->
-<!--      </button>-->
+      <div>
+        <label for="worker-surname">Фамилия: </label>
+        <input
+          type="text"
+          formControlName="surname"
+          id="worker-surname"
+        />
+      </div>
+      <div>
+        <label for="worker-name">Имя: </label>
+        <input
+          type="text"
+          formControlName="name"
+          id="worker-name"
+        />
+      </div>
+      <div>
+        <label for="worker-patronymic">Отчество: </label>
+        <input
+          type="text"
+          formControlName="patronymic"
+          id="worker-patronymic"
+        />
+      </div>
+      <div>
+        <label for="worker-phone">Телефон: </label>
+        <input
+          type="text"
+          [textMask]="{mask: phoneMask}"
+          formControlName="phone"
+          id="worker-phone"
+        />
+      </div>
+      <div>
+        <label for="worker-email">E-mail: </label>
+        <input
+          type="text"
+          formControlName="email"
+          id="worker-email"
+        />
+      </div>
+      <div>
+        <label for="worker-birthdate">Дата рождения: </label>
+        <input
+          type="date"
+          formControlName="birthdate"
+          id="worker-birthdate"
+        />
+      </div>
+      <div>
+        <label for="worker-department">Отдел: </label>
+        <select
+          formControlName="department"
+          id="worker-department"
+        >
+          <option [ngValue]="workerDepartment.it">IT отдел</option>
+          <option [ngValue]="workerDepartment.sales">Отдел продаж</option>
+          <option [ngValue]="workerDepartment.delivery">Отдел доставки</option>
+          <option [ngValue]="workerDepartment.legal">Юридический отдел</option>
+        </select>
+      </div>
+      <div class="row">
+        <button
+          (click)="onSave()"
+          [disabled]="workerForm.invalid"
+          class="save"
+        >Сохранить
+        </button>
 
-<!--      <button-->
-<!--        (click)="onCloseRedact(); clear()"-->
-<!--        class="cancel"-->
-<!--      >Отмена-->
-<!--      </button>-->
-<!--    </div>-->
-<!--    <h2-->
-<!--      *ngIf="(formRedact.controls['name'].invalid && formRedact.controls['name'].touched)-->
-<!--      || (formRedact.controls['surname'].invalid && formRedact.controls['surname'].touched)"-->
-<!--    >Введены не все данные</h2>-->
+        <button
+          *ngIf="id != null"
+          (click)="onDelete()"
+          class="cancel"
+        >Удалить
+        </button>
+      </div>
+    </div>
   </form>
 </div>
