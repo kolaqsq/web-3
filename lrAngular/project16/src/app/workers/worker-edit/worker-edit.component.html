@@ -1,83 +1,78 @@
-<div>
-  <!--  <h1>Редактирование</h1>-->
-  <form [formGroup]="workerForm">
-    <div class="row">
-      <div>
-        <label for="worker-surname">Фамилия: </label>
-        <input
-          type="text"
-          formControlName="surname"
-          id="worker-surname"
-        />
-      </div>
-      <div>
-        <label for="worker-name">Имя: </label>
-        <input
-          type="text"
-          formControlName="name"
-          id="worker-name"
-        />
-      </div>
-      <div>
-        <label for="worker-patronymic">Отчество: </label>
-        <input
-          type="text"
-          formControlName="patronymic"
-          id="worker-patronymic"
-        />
-      </div>
-      <div>
-        <label for="worker-phone">Телефон: </label>
-        <input
-          type="text"
-          [textMask]="{mask: phoneMask}"
-          formControlName="phone"
-          id="worker-phone"
-        />
-      </div>
-      <div>
-        <label for="worker-email">E-mail: </label>
-        <input
-          type="text"
-          formControlName="email"
-          id="worker-email"
-        />
-      </div>
-      <div>
-        <label for="worker-birthdate">Дата рождения: </label>
-        <input
-          type="date"
-          formControlName="birthdate"
-          id="worker-birthdate"
-        />
-      </div>
-      <div>
-        <label for="worker-department">Отдел: </label>
-        <select
-          formControlName="department"
-          id="worker-department"
-        >
-          <option [ngValue]="workerDepartment.it">IT отдел</option>
-          <option [ngValue]="workerDepartment.sales">Отдел продаж</option>
-          <option [ngValue]="workerDepartment.delivery">Отдел доставки</option>
-          <option [ngValue]="workerDepartment.legal">Юридический отдел</option>
-        </select>
-      </div>
-      <div class="row">
-        <button
-          (click)="onSave()"
-          [disabled]="workerForm.invalid"
-          class="save"
-        >Сохранить
-        </button>
+<form [formGroup]="workerForm">
+  <div>
+    <label for="worker-surname">Фамилия: </label>
+    <input
+      formControlName="surname"
+      id="worker-surname"
+      type="text"
+    />
+  </div>
+  <div>
+    <label for="worker-name">Имя: </label>
+    <input
+      formControlName="name"
+      id="worker-name"
+      type="text"
+    />
+  </div>
+  <div>
+    <label for="worker-patronymic">Отчество: </label>
+    <input
+      formControlName="patronymic"
+      id="worker-patronymic"
+      type="text"
+    />
+  </div>
+  <div>
+    <label for="worker-phone">Телефон: </label>
+    <input
+      [textMask]="{mask: phoneMask}"
+      formControlName="phone"
+      id="worker-phone"
+      type="text"
+    />
+  </div>
+  <div>
+    <label for="worker-email">E-mail: </label>
+    <input
+      formControlName="email"
+      id="worker-email"
+      type="text"
+    />
+  </div>
+  <div>
+    <label for="worker-birthdate">Дата рождения: </label>
+    <input
+      formControlName="birthdate"
+      id="worker-birthdate"
+      type="date"
+    />
+  </div>
+  <div>
+    <label for="worker-department">Отдел: </label>
+    <select
+      formControlName="department"
+      id="worker-department"
+    >
+      <option [ngValue]="workerDepartment.it">IT отдел</option>
+      <option [ngValue]="workerDepartment.sales">Отдел продаж</option>
+      <option [ngValue]="workerDepartment.delivery">Отдел доставки</option>
+      <option [ngValue]="workerDepartment.legal">Юридический отдел</option>
+    </select>
+  </div>
+  <div class="row">
+    <button
+      (click)="onSave()"
+      [disabled]="workerForm.invalid"
+      class="save"
+    >Сохранить
+    </button>
 
-        <button
-          *ngIf="id != null"
-          (click)="onDelete()"
-          class="cancel"
-        >Удалить
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
+    <button
+      (click)="onDelete()"
+      *ngIf="id != null"
+      class="delete"
+    >Удалить
+    </button>
+  </div>
+</form>

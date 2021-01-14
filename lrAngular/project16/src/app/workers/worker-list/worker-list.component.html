@@ -1,13 +1,14 @@
 <div class="filter">
+  <label for="filter">Поиск: </label>
   <input
     [(ngModel)]="filterValue"
+    id="filter"
     name="filter"
     placeholder="Введите имя или фамилию"
   />
 </div>
 
-<div *ngIf="(workers | filterWorkers: filterValue).length > 0">
-<!--  <h1>{{title}}</h1>-->
+<div *ngIf="(workers | filterWorkers: filterValue).length > 0" class="list">
   <table>
     <tr>
       <th><a
@@ -19,15 +20,14 @@
         (click)="changeOrderAgeState()"
       >{{orderAge}}</a></th>
       <th>Отдел</th>
-      <th>
+      <th colspan="2">
         <button
           (click)="onAddProfile()"
-          class="redact"
+          class="add"
         >
           Добавить
         </button>
       </th>
-      <th></th>
     </tr>
     <tr *ngFor="let worker of workers | orderBy: orderType:orderState | filterWorkers: filterValue ">
       <th>{{worker.id}}</th>
