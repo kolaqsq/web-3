@@ -1,5 +1,5 @@
 export interface Worker {
-  id?: number;
+  id: number;
   surname: string;
   name: string;
   patronymic: string;

@@ -1,21 +1,40 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Worker, WorkerDepartment} from "../../shared/models/worker.model";
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {WorkersService} from "../../shared/services/workers.service";
-import {isNullOrUndefined} from "../shared/tools/is-null-or-unfrfined";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Worker, WorkerDepartment } from '../../shared/models/worker.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { WorkersService } from '../../shared/services/workers.service';
+import { isNullOrUndefined } from '../shared/tools/is-null-or-unfrfined';
 
 @Component({
   selector: 'app-worker-edit',
   templateUrl: './worker-edit.component.html',
-  styleUrls: ['./worker-edit.component.sass']
+  styleUrls: ['./worker-edit.component.sass'],
 })
 export class WorkerEditComponent implements OnInit {
-  id: number | undefined;
-  worker: Worker | undefined;
+  id!: number;
+  worker!: Worker;
   workerDepartment = WorkerDepartment;
-  workerForm: FormGroup | undefined;
-  phoneMask = ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
+  workerForm!: FormGroup;
+  phoneMask = [
+    '+',
+    '7',
+    ' ',
+    '(',
+    /[1-9]/,
+    /\d/,
+    /\d/,
+    ')',
+    ' ',
+    /\d/,
+    /\d/,
+    /\d/,
+    '-',
+    /\d/,
+    /\d/,
+    '-',
+    /\d/,
+    /\d/,
+  ];
 
   constructor(
     private activatedRouter: ActivatedRoute,
@@ -29,20 +48,22 @@ export class WorkerEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.workerForm = new FormGroup({
-      'surname': new FormControl('', Validators.required),
-      'name': new FormControl('', Validators.required),
-      'patronymic': new FormControl('', Validators.required),
-      'phone': new FormControl('', Validators.compose(
-        [
+      surname: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
+      patronymic: new FormControl('', Validators.required),
+      phone: new FormControl(
+        '',
+        Validators.compose([
           Validators.required,
           Validators.pattern('\\+7 \\([0-9]{3}\\) [0-9]{3}-[0-9]{2}-[0-9]{2}'),
-        ])),
-      'email': new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.email,
-      ])),
-      'birthdate': new FormControl('', Validators.required),
-      'department': new FormControl('', Validators.required),
+        ])
+      ),
+      email: new FormControl(
+        '',
+        Validators.compose([Validators.required, Validators.email])
+      ),
+      birthdate: new FormControl('', Validators.required),
+      department: new FormControl('', Validators.required),
     });
     this.getData();
   }
